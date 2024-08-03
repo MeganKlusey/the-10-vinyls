@@ -1,6 +1,6 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HomeComponent msg="Welcome to Your Vue.js App"/>
+  <img alt="The 10 Vinyls logo" src="./assets/logo.png">
+  <HomeComponent />
 </template>
 
 <script>
