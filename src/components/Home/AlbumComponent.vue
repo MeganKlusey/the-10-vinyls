@@ -18,6 +18,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   .album-cover {
     border-radius: 5px;
     width: 100%;
@@ -26,6 +27,25 @@ export default {
     &:hover {
       transform: skew(-4deg, 4deg);
     }
+  }
+
+  h2, h3, p {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    margin-top: 10px;
+  }
+
+  p {
+    color: #78716C;
+    margin-top: 2px;
   }
 }
 </style>
