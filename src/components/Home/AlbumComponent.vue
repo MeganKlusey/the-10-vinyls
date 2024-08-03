@@ -23,7 +23,7 @@ export default {
     border-radius: 5px;
     width: 100%;
     max-width: 200px;
-    transition-duration: 0.1s;
+    transition-duration: 0.15s;
     &:hover {
       transform: skew(-4deg, 4deg);
     }
