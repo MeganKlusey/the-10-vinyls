@@ -1,5 +1,5 @@
 <template>
-  <img alt="The 10 Vinyls logo" src="./assets/logo.png">
+  <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
   <HomeComponent />
 </template>
 
@@ -15,4 +15,9 @@ export default {
 </script>
 
 <style lang="scss">
+#logo {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+}
 </style>
