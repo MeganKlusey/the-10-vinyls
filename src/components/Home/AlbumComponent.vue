@@ -36,6 +36,8 @@ export default {
   }
 
   h2 {
+    color: #C48D00;
+    font-weight: 600;
     margin-bottom: 10px;
   }
 
