@@ -1,7 +1,7 @@
 <template>
   <div class="album">
-    <h2>1</h2>
-    <img id="1" class="album-cover" alt="Album cover" src="../../assets/1.jpg">
+    <h2>{{id}}</h2>
+    <img :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
     <p>{{ artist }}</p>
   </div>
@@ -13,7 +13,7 @@ export default {
   props: [
     'name',
     'artist',
-    'image'
+    'id'
   ]
 }
 </script>

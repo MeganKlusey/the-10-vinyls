@@ -7,6 +7,7 @@
         :name=album.name
         :artist=album.artist
         :image=album.image
+        :id=album.id
       />
     </li>
   </ol>
@@ -25,43 +26,43 @@ export default {
     const albums = ref([
       { name: 'The Miseducation of Lauryn Hill',
         artist: 'Lauryn Hill',
-        image: ''
+        id: 1
       },
       { name: 'Thriller',
         artist: 'Michael Jackson',
-        image: ''
+        id: 2
       },
       { name: 'Abbey Road',
         artist: 'The Beatles',
-        image: ''
+        id: 3
       },
       { name: 'Purple Rain',
         artist: 'Prince',
-        image: ''
+        id: 4
       },
       { name: 'Blonde',
         artist: 'Frank Ocean',
-        image: ''
+        id: 5
       },
       { name: 'Songs in the Key of Life',
         artist: 'Stevie Wonder',
-        image: ''
+        id: 6
       },
       { name: 'good kid, m.A.A.d city (Deluxe Version)',
         artist: 'Kendrick Lamar',
-        image: ''
+        id: 7
       },
       { name: 'Back to Black',
         artist: 'Amy Winehouse',
-        image: ''
+        id: 8
       },
       { name: 'Nevermind',
         artist: 'Nirvana',
-        image: ''
+        id: 9
       },
       { name: 'Lemonade',
         artist: 'Beyoncé',
-        image: ''
+        id: 10
       }
     ])
     return {
