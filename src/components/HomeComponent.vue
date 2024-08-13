@@ -5,6 +5,8 @@
       v-for="album in albums">
       <AlbumComponent
         :name=album.name
+        :artist=album.artist
+        :image=album.image
       />
     </li>
   </ol>
@@ -21,16 +23,46 @@ export default {
   },
   setup() {
     const albums = ref([
-      { name: 'The Miseducation of Lauryn Hill' },
-      { name: 'Thriller' },
-      { name: 'Abbey Road' },
-      { name: 'Purple Rain' },
-      { name: 'Blonde' },
-      { name: 'Songs in the Key of Life' },
-      { name: 'good kid, m.A.A.d city (Deluxe Version)' },
-      { name: 'Back to Black' },
-      { name: 'Nevermind' },
-      { name: 'Lemonade' }
+      { name: 'The Miseducation of Lauryn Hill',
+        artist: 'Lauryn Hill',
+        image: ''
+      },
+      { name: 'Thriller',
+        artist: 'Michael Jackson',
+        image: ''
+      },
+      { name: 'Abbey Road',
+        artist: 'The Beatles',
+        image: ''
+      },
+      { name: 'Purple Rain',
+        artist: 'Prince',
+        image: ''
+      },
+      { name: 'Blonde',
+        artist: 'Frank Ocean',
+        image: ''
+      },
+      { name: 'Songs in the Key of Life',
+        artist: 'Stevie Wonder',
+        image: ''
+      },
+      { name: 'good kid, m.A.A.d city (Deluxe Version)',
+        artist: 'Kendrick Lamar',
+        image: ''
+      },
+      { name: 'Back to Black',
+        artist: 'Amy Winehouse',
+        image: ''
+      },
+      { name: 'Nevermind',
+        artist: 'Nirvana',
+        image: ''
+      },
+      { name: 'Lemonade',
+        artist: 'Beyoncé',
+        image: ''
+      }
     ])
     return {
       albums

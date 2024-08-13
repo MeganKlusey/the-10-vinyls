@@ -3,7 +3,7 @@
     <h2>1</h2>
     <img id="1" class="album-cover" alt="Album cover" src="../../assets/1.jpg">
     <h3>{{ name }}</h3>
-    <p>Lauryn Hill</p>
+    <p>{{ artist }}</p>
   </div>
 </template>
 
@@ -11,7 +11,9 @@
 export default {
   name: 'AlbumComponent',
   props: [
-    'name'
+    'name',
+    'artist',
+    'image'
   ]
 }
 </script>
