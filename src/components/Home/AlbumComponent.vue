@@ -24,9 +24,6 @@ export default {
     width: 100%;
     max-width: 200px;
     transition-duration: 0.15s;
-    &:hover {
-      transform: skew(-4deg, 4deg);
-    }
   }
 
   h2, h3, p {
