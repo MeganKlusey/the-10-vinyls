@@ -73,7 +73,73 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ol li {
-  list-style-type: none;
+ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  margin: 100px 0;
+  row-gap: 100px;
+
+  li {
+    list-style-type: none;
+
+    &:nth-child(1) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(2) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(3) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(4) {
+      flex-basis: 34%;
+    }
+
+    &:nth-child(5) {
+      flex-basis: 34%;
+    }
+
+    &:nth-child(6) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(7) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(8) {
+      flex-basis: 33.3%;
+    }
+
+     &:nth-child(1) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(2) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(3) {
+      flex-basis: 33.3%;
+    }
+
+     &:nth-child(1) {
+      flex-basis: 33.3%;
+    }
+
+    &:nth-child(9) {
+      flex-basis: 34%;
+    }
+
+    &:nth-child(10) {
+      flex-basis: 34%;
+    }
+  }
 }
 </style>
