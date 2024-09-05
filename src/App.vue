@@ -14,10 +14,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-#logo {
-  display: block;
-  margin: 0 auto;
-  width: 150px;
+<style lang="scss">
+body {
+  transition-duration: 0.4s;
+
+  #logo {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+  }
 }
 </style>
