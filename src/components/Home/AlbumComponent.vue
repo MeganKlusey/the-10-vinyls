@@ -1,7 +1,8 @@
 <template>
   <div class="album">
     <h2>{{id}}</h2>
-    <img :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
+    <img @mouseover="changeColour(colour)" @mouseleave="changeColour('fff')"
+    :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
     <p>{{ artist }}</p>
   </div>
@@ -13,8 +14,14 @@ export default {
   props: [
     'name',
     'artist',
+    'colour',
     'id'
-  ]
+  ],
+  methods: {
+    changeColour: function(colour) {
+      document.body.style.backgroundColor = '#' + colour;
+    }
+  }
 }
 </script>
 
@@ -41,6 +48,7 @@ export default {
     color: #C48D00;
     font-weight: 600;
     margin-bottom: 10px;
+    text-shadow: 0 0 1px #FFF;
   }
 
   h3 {
