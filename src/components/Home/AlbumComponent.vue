@@ -61,6 +61,7 @@ export default {
   p {
     color: #78716C;
     margin-top: 2px;
+    transition-delay: 0.1s;
   }
 }
 </style>
