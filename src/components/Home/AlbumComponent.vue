@@ -1,7 +1,7 @@
 <template>
   <div class="album">
     <h2>{{id}}</h2>
-    <img @mouseover="changeColour(colour)" @mouseleave="changeColour('fff')"
+    <img @mouseover="changeColour(colour, 'FFF')" @mouseleave="changeColour('FFF', '78716C')"
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
     <p>{{ artist }}</p>
@@ -18,8 +18,11 @@ export default {
     'id'
   ],
   methods: {
-    changeColour: function(colour) {
-      document.body.style.backgroundColor = '#' + colour;
+    changeColour: function(bgColour, textColour) {
+      document.body.style.backgroundColor = '#' + bgColour;
+      for (var i = 0; i < 10; i++) {
+        document.getElementsByTagName('p')[i].style.color = '#' + textColour;
+      }
     }
   }
 }
