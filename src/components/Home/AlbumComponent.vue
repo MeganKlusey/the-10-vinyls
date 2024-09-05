@@ -5,12 +5,18 @@
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
     <p>{{ artist }}</p>
+    <QuantityComponent />
   </div>
 </template>
 
 <script>
+import QuantityComponent from './QuantityComponent'
+
 export default {
   name: 'AlbumComponent',
+  components: {
+    QuantityComponent
+  },
   props: [
     'name',
     'artist',
