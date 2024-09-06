@@ -20,6 +20,7 @@ export default {
     height: 22px;
     border: 1px solid #78716C;
     padding: 0;
+    text-align: center;
 
     &:focus {
       outline: none;
