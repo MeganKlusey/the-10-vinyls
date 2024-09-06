@@ -1,7 +1,7 @@
 <template>
   <div class="album">
-    <h2>{{id}}</h2>
-    <img @mouseover="changeColour(colour, 'FFF')" @mouseleave="changeColour('FFF', '78716C')"
+    <h2>{{ id }}</h2>
+    <img @mouseover="changeColour(colour, 'FFFFF0')" @mouseleave="changeColour('FFF', '78716C')"
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
     <p>{{ artist }}</p>
@@ -9,27 +9,16 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from "vue";
 import QuantityComponent from './QuantityComponent'
 
-export default {
-  name: 'AlbumComponent',
-  components: {
-    QuantityComponent
-  },
-  props: [
-    'name',
-    'artist',
-    'colour',
-    'id'
-  ],
-  methods: {
-    changeColour: function(bgColour, textColour) {
-      document.body.style.backgroundColor = '#' + bgColour;
-      for (var i = 0; i < 10; i++) {
-        document.getElementsByTagName('p')[i].style.color = '#' + textColour;
-      }
-    }
+defineProps(['name', 'artist', 'colour', 'id']);
+
+function changeColour(bgColour, textColour) {
+  document.body.style.backgroundColor = '#' + bgColour;
+  for (var i = 0; i < 10; i++) {
+    document.getElementsByTagName('p')[i].style.color = '#' + textColour;
   }
 }
 </script>
