@@ -3,15 +3,8 @@
   <HomeComponent />
 </template>
 
-<script>
+<script setup>
 import HomeComponent from './components/HomeComponent.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HomeComponent
-  }
-}
 </script>
 
 <style lang="scss">

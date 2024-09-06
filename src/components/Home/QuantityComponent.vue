@@ -6,10 +6,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'QuantityComponent',
-}
+<script setup>
 </script>
 
 <style lang="scss" scoped>
@@ -33,6 +30,7 @@ export default {
     height: 24px;
     width: 24px;
     color: #FFF;
+    font-weight: bold;
   }
 }
 </style>
