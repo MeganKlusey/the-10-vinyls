@@ -1,12 +1,25 @@
 <template>
   <div class="quantity">
-    <button>-</button>
-    <input value="0" />
-    <button>+</button>
+    <button @click="removeQuantity">-</button>
+    <input v-model="quantity"  min="0" type="number" step="1" />
+    <button @click="addQuantity">+</button>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+let quantity = ref(0);
+
+function removeQuantity() {
+  if (quantity.value > 0) {
+    quantity.value--;
+  }
+}
+
+function addQuantity() {
+  quantity.value++;
+}
 </script>
 
 <style lang="scss" scoped>
