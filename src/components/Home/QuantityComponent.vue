@@ -1,9 +1,11 @@
 <template>
   <div class="quantity">
-    <button @click="removeQuantity">-</button>
-    <input v-model="quantity"  min="0" type="number" step="1" />
-    <button @click="addQuantity">+</button>
+    <button @click="quantity > 0 && quantity--">-</button>
+    <input v-model.number="quantity" min="0" type="number" step="1"
+    @input="handleInput" @keydown="handleKeyDown" />
+    <button @click="quantity++">+</button>
   </div>
+  {{minReached}}
 </template>
 
 <script setup>
@@ -11,14 +13,22 @@ import { ref } from 'vue'
 
 let quantity = ref(0);
 
-function removeQuantity() {
-  if (quantity.value > 0) {
-    quantity.value--;
+function handleInput(e) {
+  const value = e.target.value;
+  const checkValue = parseInt('00');
+  
+  if (value < 0 || String(value).startsWith(checkValue)) {
+    quantity.value = 0;
+    e.target.value = 0;
+  } else {
+    quantity.value = Number(value);
   }
 }
 
-function addQuantity() {
-  quantity.value++;
+function handleKeyDown(e) {
+  if (e.key === '-') {
+    e.preventDefault();
+  }
 }
 </script>
 
@@ -35,6 +45,10 @@ function addQuantity() {
     text-align: center;
     box-shadow: inset 0 0 2px #78716C;
     width: 50%;
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
 
     &:focus {
       outline: none;
