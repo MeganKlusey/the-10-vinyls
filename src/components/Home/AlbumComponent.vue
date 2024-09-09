@@ -4,7 +4,8 @@
     <img @mouseover="changeColour(colour, 'FFFFF0')" @mouseleave="changeColour('FFF', '78716C')"
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
-    <p>{{ artist }}</p>
+    <p class="artist">{{ artist }}</p>
+    <p class="price">£25</p>
     <QuantityComponent @quantity="updateQuantity" />
   </div>
 </template>
@@ -26,7 +27,7 @@ defineProps(['name', 'artist', 'colour', 'id']);
 
 function changeColour(bgColour, textColour) {
   document.body.style.backgroundColor = '#' + bgColour;
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < document.getElementsByTagName('p').length; i++) {
     document.getElementsByTagName('p')[i].style.color = '#' + textColour;
   }
 }
@@ -66,6 +67,10 @@ function changeColour(bgColour, textColour) {
     color: #78716C;
     margin-top: 2px;
     transition-delay: 0.1s;
+
+    &.price {
+      color: #A8A5A3;
+    }
   }
 }
 </style>
