@@ -8,14 +8,26 @@
         :artist=album.artist
         :colour=album.colour
         :id=album.id
+        @quantity="updateQuantity"
       />
     </li>
   </ol>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
 import AlbumComponent from './Home/AlbumComponent'
+
+let quantity = ref(0);
+
+function updateQuantity(newQuantity) {
+  quantity.value = newQuantity;
+  emit('quantity', quantity.value);
+}
+
+const emit = defineEmits(['quantity'])
+
+emit('quantity');
 
 const albums = ref([
   { name: 'The Miseducation of Lauryn Hill',

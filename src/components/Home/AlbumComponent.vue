@@ -5,13 +5,22 @@
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
     <p>{{ artist }}</p>
-    <QuantityComponent />
+    <QuantityComponent @quantity="updateQuantity" />
   </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { ref, defineProps, defineEmits } from "vue";
 import QuantityComponent from './QuantityComponent'
+
+const emit = defineEmits(['quantity'])
+
+let quantity = ref(0);
+
+function updateQuantity(newQuantity) {
+  quantity.value = newQuantity;
+  emit('quantity', quantity.value);
+}
 
 defineProps(['name', 'artist', 'colour', 'id']);
 

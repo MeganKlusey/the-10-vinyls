@@ -1,13 +1,25 @@
 <template>
   <header>
     <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
-    <a id="basket" href="/basket">Basket ()</a>
+    <a id="basket" href="/basket">
+      <ion-icon class="basket-icon" name="cart-outline"></ion-icon>
+      <span class="basket-text">Basket</span>
+      ({{ totalQuantity }})
+    </a>
   </header>
-  <HomeComponent />
+  <HomeComponent @quantity="updateQuantity" />
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import HomeComponent from './components/HomeComponent.vue'
+
+let quantity = ref(0);
+//let totalQuantity = ref();
+
+function updateQuantity(newQuantity) {
+  quantity.value = newQuantity;
+}
 </script>
 
 <style lang="scss">
@@ -31,6 +43,9 @@ body {
     }
 
     #basket {
+      display: flex;
+      align-items: center;
+      gap: 4px;
       position: absolute;
       top: 50%;
       left: 98%;

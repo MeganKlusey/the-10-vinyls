@@ -1,17 +1,19 @@
 <template>
   <div class="quantity">
-    <button @click="quantity > 0 && quantity--">-</button>
+    <button @click="removeQuantity">-</button>
     <input v-model.number="quantity" min="0" type="number" step="1"
     @input="handleInput" @keydown="handleKeyDown" />
-    <button @click="quantity++">+</button>
+    <button @click="addQuantity">+</button>
   </div>
-  {{minReached}}
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue';
 
 let quantity = ref(0);
+
+const emit = defineEmits(['quantity']);
+emit('quantity', quantity.value);
 
 function handleInput(e) {
   const value = e.target.value;
@@ -23,6 +25,20 @@ function handleInput(e) {
   } else {
     quantity.value = Number(value);
   }
+
+  emit('quantity', quantity.value);
+}
+
+function removeQuantity() {
+  if(quantity.value > 0) {
+    quantity.value--;
+  }
+  emit('quantity', quantity.value);
+}
+
+function addQuantity() {
+  quantity.value++;
+  emit('quantity', quantity.value);
 }
 
 function handleKeyDown(e) {
