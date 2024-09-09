@@ -58,6 +58,14 @@ body {
       color: #000;
       letter-spacing: 2px;
       text-decoration: none;
+
+      .basket-text {
+        display: none;
+        
+        @media only screen and (min-width: 640px) {
+          display: block;
+        }
+      }
     }
   }
 }
