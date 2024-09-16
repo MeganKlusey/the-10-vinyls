@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+import { store } from '../../store.js'
 import { ref, defineEmits } from 'vue';
 
 let quantity = ref(0);
@@ -32,12 +33,14 @@ function handleInput(e) {
 function removeQuantity() {
   if(quantity.value > 0) {
     quantity.value--;
+    store.totalQuantity--;
   }
   emit('quantity', quantity.value);
 }
 
 function addQuantity() {
   quantity.value++;
+  store.totalQuantity++;
   emit('quantity', quantity.value);
 }
 

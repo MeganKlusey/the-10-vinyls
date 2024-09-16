@@ -4,18 +4,18 @@
     <a id="basket" href="/basket">
       <ion-icon class="basket-icon" name="cart-outline"></ion-icon>
       <span class="basket-text">Basket</span>
-      ({{ totalQuantity }})
+      ({{ store.totalQuantity }})
     </a>
   </header>
   <HomeComponent @quantity="updateQuantity" />
 </template>
 
 <script setup>
+import { store } from './store.js'
 import { ref } from 'vue'
 import HomeComponent from './components/HomeComponent.vue'
 
 let quantity = ref(0);
-//let totalQuantity = ref();
 
 function updateQuantity(newQuantity) {
   quantity.value = newQuantity;
@@ -61,7 +61,7 @@ body {
 
       .basket-text {
         display: none;
-        
+
         @media only screen and (min-width: 640px) {
           display: block;
         }
