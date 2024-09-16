@@ -1,19 +1,19 @@
 <template>
   <header>
     <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
-    <a id="basket" href="/basket">
+    <RouterLink id="basket" to="/basket">
       <ion-icon class="basket-icon" name="cart-outline"></ion-icon>
       <span class="basket-text">Basket</span>
       ({{ store.totalQuantity }})
-    </a>
+    </RouterLink>
   </header>
-  <HomeComponent @quantity="updateQuantity" />
+  <HomeView @quantity="updateQuantity" />
 </template>
 
 <script setup>
 import { store } from './store.js'
 import { ref } from 'vue'
-import HomeComponent from './components/HomeComponent.vue'
+import HomeView from './views/HomeView.vue'
 
 let quantity = ref(0);
 
