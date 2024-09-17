@@ -1,19 +1,20 @@
 <template>
   <header>
-    <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
-    <RouterLink id="basket" to="/basket">
+    <RouterLink to="/">
+      <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
+    </RouterLink>
+    <RouterLink to="/basket" id="basket">
       <ion-icon class="basket-icon" name="cart-outline"></ion-icon>
       <span class="basket-text">Basket</span>
       ({{ store.totalQuantity }})
     </RouterLink>
   </header>
-  <HomeView @quantity="updateQuantity" />
+  <RouterView @quantity="updateQuantity" />
 </template>
 
 <script setup>
 import { store } from './store.js'
 import { ref } from 'vue'
-import HomeView from './views/HomeView.vue'
 
 let quantity = ref(0);
 
