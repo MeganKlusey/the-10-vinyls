@@ -6,24 +6,15 @@
     <h3>{{ name }}</h3>
     <p class="artist">{{ artist }}</p>
     <p class="price">£25</p>
-    <QuantityComponent @quantity="updateQuantity" />
+    <QuantityComponent :id=id />
   </div>
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from "vue";
+import { defineProps } from "vue";
 import QuantityComponent from './QuantityComponent'
 
-const emit = defineEmits(['quantity'])
-
-let quantity = ref(0);
-
-function updateQuantity(newQuantity) {
-  quantity.value = newQuantity;
-  emit('quantity', quantity.value);
-}
-
-defineProps(['name', 'artist', 'colour', 'id']);
+defineProps(['name', 'artist', 'colour', 'id', 'quantity']);
 
 function changeColour(bgColour, textColour) {
   document.body.style.backgroundColor = '#' + bgColour;

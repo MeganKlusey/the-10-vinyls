@@ -1,47 +1,40 @@
 <template>
   <div class="quantity">
     <button @click="removeQuantity">-</button>
-    <input v-model.number="quantity" min="0" type="number" step="1"
+    <input :value="store.albums.filter(album => album.id === props.id)[0].quantity" min="0" type="number" step="1"
     @input="handleInput" @keydown="handleKeyDown" />
     <button @click="addQuantity">+</button>
   </div>
 </template>
 
 <script setup>
+import { defineProps } from "vue";
 import { store } from '../../store.js'
-import { ref, defineEmits } from 'vue';
 
-let quantity = ref(0);
-
-const emit = defineEmits(['quantity']);
-emit('quantity', quantity.value);
+let props = defineProps(['id']);
 
 function handleInput(e) {
   const value = e.target.value;
   const checkValue = parseInt('00');
   
   if (value < 0 || String(value).startsWith(checkValue)) {
-    quantity.value = 0;
+    this.quantity.value = 0;
     e.target.value = 0;
   } else {
-    quantity.value = Number(value);
+    this.quantity.value = Number(value);
   }
-
-  emit('quantity', quantity.value);
 }
 
 function removeQuantity() {
-  if(quantity.value > 0) {
-    quantity.value--;
+  if(store.albums.filter(album => album.id === props.id)[0].quantity > 0) {
+    store.albums.filter(album => album.id === props.id)[0].quantity--;
     store.totalQuantity--;
   }
-  emit('quantity', quantity.value);
 }
 
 function addQuantity() {
-  quantity.value++;
+  store.albums.filter(album => album.id === props.id)[0].quantity++;
   store.totalQuantity++;
-  emit('quantity', quantity.value);
 }
 
 function handleKeyDown(e) {

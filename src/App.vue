@@ -9,18 +9,11 @@
       ({{ store.totalQuantity }})
     </RouterLink>
   </header>
-  <RouterView @quantity="updateQuantity" />
+  <RouterView />
 </template>
 
 <script setup>
 import { store } from './store.js'
-import { ref } from 'vue'
-
-let quantity = ref(0);
-
-function updateQuantity(newQuantity) {
-  quantity.value = newQuantity;
-}
 </script>
 
 <style lang="scss">

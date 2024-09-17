@@ -8,7 +8,6 @@
         :artist=album.artist
         :colour=album.colour
         :id=album.id
-        @quantity="updateQuantity"
       />
     </li>
   </ol>
@@ -16,19 +15,7 @@
 
 <script setup>
 import { store } from '../store.js'
-import { ref, defineEmits } from 'vue'
 import AlbumComponent from './Home/AlbumComponent'
-
-let quantity = ref(0);
-
-function updateQuantity(newQuantity) {
-  quantity.value = newQuantity;
-  emit('quantity', quantity.value);
-}
-
-const emit = defineEmits(['quantity'])
-
-emit('quantity');
 </script>
 
 <style lang="scss" scoped>
