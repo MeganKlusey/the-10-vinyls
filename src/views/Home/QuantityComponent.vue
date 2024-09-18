@@ -68,6 +68,7 @@ function handleKeyDown(e) {
     height: 24px;
     border: none;
     padding: 0;
+    font-size: 14px;
     text-align: center;
     box-shadow: inset 0 0 2px #78716C;
     width: 100%;
