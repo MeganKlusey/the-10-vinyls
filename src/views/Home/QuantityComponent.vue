@@ -16,7 +16,7 @@ let props = defineProps(['id']);
 
 function handleInput(e) {
   const value = e.target.value;
-  const checkValue = parseInt('00');
+  const checkValue = "00";
   
   if (value < 0 || String(value).startsWith(checkValue)) {
     store.albums.filter(album => album.id === props.id)[0].quantity = 0;
