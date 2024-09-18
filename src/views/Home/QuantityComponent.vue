@@ -2,7 +2,7 @@
   <div class="quantity">
     <button @click="removeQuantity">-</button>
     <input :value="store.albums.filter(album => album.id === props.id)[0].quantity" 
-    min="0" type="number" step="1" @blur="handleBlur"
+    min="0" max="100" type="number" step="1" @blur="handleBlur"
     @input="handleInput" @keydown="handleKeyDown" />
     <button @click="addQuantity">+</button>
   </div>
@@ -16,11 +16,15 @@ let props = defineProps(['id']);
 
 function handleInput(e) {
   const value = e.target.value;
-  const checkValue = "00";
+  const checkMinValue = "00";
+  const checkMaxValue = 100;
   
-  if (value < 0 || String(value).startsWith(checkValue)) {
+  if (value < 0 || String(value).startsWith(checkMinValue)) {
     store.albums.filter(album => album.id === props.id)[0].quantity = 0;
     e.target.value = 0;
+  } else if (value > checkMaxValue) {
+    store.albums.filter(album => album.id === props.id)[0].quantity = checkMaxValue;
+    e.target.value = checkMaxValue;
   } else {
     store.albums.filter(album => album.id === props.id)[0].quantity = Number(value);
   }
@@ -40,8 +44,10 @@ function removeQuantity() {
 }
 
 function addQuantity() {
-  store.albums.filter(album => album.id === props.id)[0].quantity++;
-  store.totalQuantity++;
+  if(store.albums.filter(album => album.id === props.id)[0].quantity < 100) {
+    store.albums.filter(album => album.id === props.id)[0].quantity++;
+    store.totalQuantity++;
+  }
 }
 
 function handleKeyDown(e) {
@@ -56,6 +62,7 @@ function handleKeyDown(e) {
   display: flex;
   justify-content: center;
   margin-top: 4px;
+  width: 175px;
 
   input {
     height: 24px;
@@ -63,7 +70,7 @@ function handleKeyDown(e) {
     padding: 0;
     text-align: center;
     box-shadow: inset 0 0 2px #78716C;
-    width: 50%;
+    width: 100%;
 
     &::-webkit-inner-spin-button {
       appearance: none;
