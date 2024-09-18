@@ -1,7 +1,8 @@
 <template>
   <div class="quantity">
     <button @click="removeQuantity">-</button>
-    <input :value="store.albums.filter(album => album.id === props.id)[0].quantity" min="0" type="number" step="1"
+    <input :value="store.albums.filter(album => album.id === props.id)[0].quantity" 
+    min="0" type="number" step="1"
     @input="handleInput" @keydown="handleKeyDown" />
     <button @click="addQuantity">+</button>
   </div>

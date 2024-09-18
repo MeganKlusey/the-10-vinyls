@@ -1,7 +1,6 @@
 import { reactive } from 'vue'
 
 export const store = reactive({
-  totalQuantity: 0,
   albums: [
     { name: 'The Miseducation of Lauryn Hill',
       artist: 'Lauryn Hill',

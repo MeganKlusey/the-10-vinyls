@@ -6,7 +6,7 @@
     <RouterLink to="/basket" id="basket">
       <ion-icon class="basket-icon" name="cart-outline"></ion-icon>
       <span class="basket-text">Basket</span>
-      ({{ store.totalQuantity }})
+      ({{ totalQuantity(store.albums) }})
     </RouterLink>
   </header>
   <RouterView />
@@ -14,6 +14,14 @@
 
 <script setup>
 import { store } from './store.js'
+
+function totalQuantity(albums) {
+  let totalQuantity = 0;
+  albums.forEach(album => {
+    totalQuantity += album.quantity;
+  })
+  return totalQuantity;
+}
 </script>
 
 <style lang="scss">
