@@ -19,10 +19,10 @@ function handleInput(e) {
   const checkValue = parseInt('00');
   
   if (value < 0 || String(value).startsWith(checkValue)) {
-    this.quantity.value = 0;
+    store.albums.filter(album => album.id === props.id)[0].quantity = 0;
     e.target.value = 0;
   } else {
-    this.quantity.value = Number(value);
+    store.albums.filter(album => album.id === props.id)[0].quantity = Number(value);
   }
 }
 
