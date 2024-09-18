@@ -2,7 +2,7 @@
   <div class="quantity">
     <button @click="removeQuantity">-</button>
     <input :value="store.albums.filter(album => album.id === props.id)[0].quantity" 
-    min="0" type="number" step="1"
+    min="0" type="number" step="1" @blur="handleBlur"
     @input="handleInput" @keydown="handleKeyDown" />
     <button @click="addQuantity">+</button>
   </div>
@@ -23,6 +23,12 @@ function handleInput(e) {
     e.target.value = 0;
   } else {
     store.albums.filter(album => album.id === props.id)[0].quantity = Number(value);
+  }
+}
+
+function handleBlur(e) {
+  if (e.target.value === '') {
+    e.target.value = 0;
   }
 }
 
