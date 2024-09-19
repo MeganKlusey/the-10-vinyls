@@ -21,6 +21,10 @@ function changeColour(bgColour, textColour) {
   for (var i = 0; i < document.getElementsByTagName('p').length; i++) {
     document.getElementsByTagName('p')[i].style.color = '#' + textColour;
   }
+  for (var j = 0; j < document.getElementsByClassName('nav-button').length; j++) {
+    document.getElementsByClassName('nav-button')[j].style.color = '#' + textColour;
+    document.getElementsByClassName('nav-button-text')[j].style.color = '#' + textColour;
+  }
 }
 </script>
 

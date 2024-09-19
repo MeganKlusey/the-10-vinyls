@@ -1,15 +1,15 @@
 <template>
   <header>
-    <RouterLink to="/basket" id="home">
+    <RouterLink to="/basket" id="home" class="nav-button">
       <ion-icon class="home-icon" name="home-outline"></ion-icon>
-      <span class="home-text">Home</span>
+      <span class="nav-button-text home-text">Home</span>
     </RouterLink>
     <RouterLink to="/">
       <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
     </RouterLink>
-    <RouterLink to="/basket" id="basket">
+    <RouterLink to="/basket" id="basket" class="nav-button">
       <ion-icon class="basket-icon" name="cart-outline"></ion-icon>
-      <span class="basket-text">Basket</span>
+      <span class="nav-button-text basket-text">Basket</span>
       ({{ totalQuantity(store.albums) }})
     </RouterLink>
   </header>
@@ -46,6 +46,14 @@ body {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 150px;
+    }
+
+    .nav-button {
+      transition-duration: 0.15s;
+
+      span {
+        transition-duration: 0.15s;
+      }
     }
 
     #home {
