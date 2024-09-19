@@ -1,5 +1,9 @@
 <template>
   <header>
+    <RouterLink to="/basket" id="home">
+      <ion-icon class="home-icon" name="home-outline"></ion-icon>
+      <span class="home-text">Home</span>
+    </RouterLink>
     <RouterLink to="/">
       <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
     </RouterLink>
@@ -42,6 +46,24 @@ body {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 150px;
+    }
+
+    #home {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: absolute;
+      top: 50%;
+      left: 2%;
+      transform: translate(-2%, -50%);
+      white-space: nowrap;
+      font-family: 'Helvetica', sans-serif;
+      font-weight: 400;
+      margin: 0;
+      text-transform: uppercase;
+      color: #000;
+      letter-spacing: 2px;
+      text-decoration: none;
     }
 
     #basket {
