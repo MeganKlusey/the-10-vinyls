@@ -1,7 +1,7 @@
 <template>
   <div class="album">
     <h2>{{ id }}</h2>
-    <img @mouseover="changeColour(colour, 'FFFFF0')" @mouseleave="changeColour('FFF', '78716C')"
+    <img @mouseover="changeColour(colour, 'FFFFF0', 'FFFFF0')" @mouseleave="changeColour('FFF', '78716C', '000')"
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
     <p class="artist">{{ artist }}</p>
@@ -16,14 +16,14 @@ import QuantityComponent from './QuantityComponent'
 
 defineProps(['name', 'artist', 'colour', 'id', 'quantity']);
 
-function changeColour(bgColour, textColour) {
+function changeColour(bgColour, albumTextColour, navTextColour) {
   document.body.style.backgroundColor = '#' + bgColour;
   for (var i = 0; i < document.getElementsByTagName('p').length; i++) {
-    document.getElementsByTagName('p')[i].style.color = '#' + textColour;
+    document.getElementsByTagName('p')[i].style.color = '#' + albumTextColour;
   }
   for (var j = 0; j < document.getElementsByClassName('nav-button').length; j++) {
-    document.getElementsByClassName('nav-button')[j].style.color = '#' + textColour;
-    document.getElementsByClassName('nav-button-text')[j].style.color = '#' + textColour;
+    document.getElementsByClassName('nav-button')[j].style.color = '#' + navTextColour;
+    document.getElementsByClassName('nav-button-text')[j].style.color = '#' + navTextColour;
   }
 }
 </script>
