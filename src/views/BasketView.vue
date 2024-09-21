@@ -40,6 +40,9 @@ import AlbumComponent from './Home/AlbumComponent'
 }
 
 ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   list-style-type: none;
 }
 </style>
