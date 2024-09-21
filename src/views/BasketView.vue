@@ -9,6 +9,7 @@
           :artist=album.artist
           :colour=album.colour
           :id=album.id
+          :inBasket=true
         />
       </li>
     </ul>
@@ -38,7 +39,7 @@ import AlbumComponent from './Home/AlbumComponent'
   }
 }
 
-ul li {
-  list-decoration: none;
+ul {
+  list-style-type: none;
 }
 </style>

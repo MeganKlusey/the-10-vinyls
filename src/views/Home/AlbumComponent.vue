@@ -1,6 +1,6 @@
 <template>
   <div class="album">
-    <h2>{{ id }}</h2>
+    <h2 v-if="!inBasket">{{ id }}</h2>
     <img @mouseover="changeColour(colour, 'FFFFF0', 'FFFFF0')" @mouseleave="changeColour('FFF', '78716C', '000')"
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <h3>{{ name }}</h3>
@@ -14,7 +14,7 @@
 import { defineProps } from "vue";
 import QuantityComponent from './QuantityComponent'
 
-defineProps(['name', 'artist', 'colour', 'id', 'quantity']);
+defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket']);
 
 function changeColour(bgColour, albumTextColour, navTextColour) {
   document.body.style.backgroundColor = '#' + bgColour;
