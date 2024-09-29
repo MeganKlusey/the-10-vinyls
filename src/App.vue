@@ -1,13 +1,13 @@
 <template>
   <header>
-    <RouterLink to="/" id="home" class="nav-button" activeClass="nav-active">
+    <RouterLink to="/" id="home" class="nav-button black-text" activeClass="nav-active">
       <ion-icon class="home-icon" name="home-outline"></ion-icon>
       <span class="nav-button-text home-text">Home</span>
     </RouterLink>
     <RouterLink to="/">
       <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
     </RouterLink>
-    <RouterLink to="/basket" id="basket" class="nav-button" activeClass="nav-active">
+    <RouterLink to="/basket" id="basket" class="nav-button black-text" activeClass="nav-active">
       <ion-icon class="basket-icon" name="cart-outline"></ion-icon>
       <span class="nav-button-text basket-text">Basket</span>
       ({{ totalQuantity(store.albums) }})
@@ -31,6 +31,7 @@ function totalQuantity(albums) {
 <style lang="scss">
 body {
   transition-duration: 0.4s;
+  min-height: calc(100vh - 16px);
 
   header {
     height: 100px;
