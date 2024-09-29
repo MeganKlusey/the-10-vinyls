@@ -1,7 +1,9 @@
 <template>
   <div class="album" :class="{inBasket: inBasket}">
     <h2 v-if="!inBasket">{{ id }}</h2>
-    <img @mouseover="changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')" @mouseleave="changeColour('FFF', '78716C', 'A8A5A3', '000')"
+    <img
+    @mouseover="!inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')"
+    @mouseleave="!inBasket && changeColour('FFF', '78716C', 'A8A5A3', '000')"
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <div class="album-text">
       <div>
@@ -9,7 +11,7 @@
         <p class="artist">{{ artist }}</p>
       </div>
       <div>
-        <p class="price black-text" :class="{inBasketPrice: 'inBasketPrice'}">£25</p>
+        <p class="price">£25</p>
         <QuantityComponent :id=id />
         <p class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;<button class="delete"><ion-icon name="trash-outline"></ion-icon><span>DELETE</span></button></p>
       </div>
@@ -36,9 +38,6 @@ function changeColour(bgColour, greyOneText, greyTwoText, blackText) {
   }
   for (var l = 0; l < document.getElementsByClassName('nav-button-text').length; l++) {
     document.getElementsByClassName('nav-button-text')[l].style.color = '#' + blackText;
-  }
-  for (var m = 0; m < document.getElementsByClassName('inBasketPrice').length; m++) {
-    document.getElementsByClassName('inBasketPrice')[m].style.color = '#' + blackText;
   }
 }
 </script>

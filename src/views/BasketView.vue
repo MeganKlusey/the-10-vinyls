@@ -12,7 +12,6 @@
           :colour=album.colour
           :id=album.id
           :inBasket=true
-          :inBasketPrice=true
         />
       </li>
     </ul>
