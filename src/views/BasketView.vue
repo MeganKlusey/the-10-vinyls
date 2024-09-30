@@ -15,8 +15,9 @@
         />
       </li>
     </ul>
-    <div class="order-summary">
-      <h2>Order Summary:</h2>
+    <div class="total-price">
+      <h2>Total Price:</h2>
+      <button>BUY NOW</button>
     </div>
   </div>
   <div v-if="store.albums.filter(album => album.quantity).length == 0"
@@ -35,7 +36,7 @@ import AlbumComponent from './Home/AlbumComponent'
   display: flex;
   position: relatiive;
   
-  .order-summary {
+  .total-price {
     border-left: 1px solid #A8A5A3;
     background-color: #fff;
     position: fixed;
@@ -45,6 +46,9 @@ import AlbumComponent from './Home/AlbumComponent'
     top: 50%;
     transform: translate(-98%, -50%);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     h2 {
       font-family: 'Helvetica', sans-serif;
@@ -53,6 +57,20 @@ import AlbumComponent from './Home/AlbumComponent'
       margin: 0;
       letter-spacing: 2px;
       font-size: 18px;
+    }
+
+    button {
+      background-color: #C48D00;
+      cursor: pointer;
+      border: none;
+      color: #FFFFF0;
+      height: 44px;
+      width: 100%;
+      transition-duration: 0.1s;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
   }
 }
