@@ -3,7 +3,7 @@
     <h2 v-if="!inBasket">{{ id }}</h2>
     <img
     @mouseover="!inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')"
-    @mouseleave="!inBasket && changeColour('FFF', '78716C', 'A8A5A3', '000')"
+    @mouseleave="!inBasket && changeColour()"
     :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
     <div class="album-text">
       <div>
@@ -25,19 +25,39 @@ import QuantityComponent from './QuantityComponent'
 
 defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket', 'inBasketPrice']);
 
-function changeColour(bgColour, greyOneText, greyTwoText, blackText) {
-  document.body.style.backgroundColor = '#' + bgColour;
+function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, blackText = null) {
+  if (bgColour != null) {
+    document.body.style.backgroundColor = '#' + bgColour;
+  } else {
+    document.body.style.backgroundColor = 'inherit';
+  }
   for (var i = 0; i < document.getElementsByClassName('artist').length; i++) {
-    document.getElementsByClassName('artist')[i].style.color = '#' + greyOneText;
+    if (greyOneText != null) {
+      document.getElementsByClassName('artist')[i].style.color = '#' + greyOneText;
+    } else {
+      document.getElementsByClassName('artist')[i].style.color = '';
+    }
   }
   for (var j = 0; j < document.getElementsByClassName('price').length; j++) {
-    document.getElementsByClassName('price')[j].style.color = '#' + greyTwoText;
+    if (greyTwoText != null) {
+      document.getElementsByClassName('price')[j].style.color = '#' + greyTwoText;
+    } else {
+      document.getElementsByClassName('price')[j].style.color = '';
+    }
   }
-  for (var k = 0; k < document.getElementsByClassName('black-text').length; k++) {
-    document.getElementsByClassName('black-text')[k].style.color = '#' + blackText;
+  for (var k = 0; k < document.getElementsByClassName('nav-button-text').length; k++) {
+    if (blackText != null) {
+      document.getElementsByClassName('nav-button-text')[k].style.color = '#' + blackText;
+    } else {
+      document.getElementsByClassName('nav-button-text')[k].style.color = '';
+    }
   }
-  for (var l = 0; l < document.getElementsByClassName('nav-button-text').length; l++) {
-    document.getElementsByClassName('nav-button-text')[l].style.color = '#' + blackText;
+  for (var l = 0; l < document.getElementsByClassName('nav-active').length; l++) {
+    if (blackText != null) {
+      document.getElementsByClassName('nav-active')[l].style.borderBottomColor = '#' + blackText;
+    } else {
+      document.getElementsByClassName('nav-active')[l].style.borderBottomColor = '';
+    }
   }
 }
 </script>
@@ -93,7 +113,6 @@ function changeColour(bgColour, greyOneText, greyTwoText, blackText) {
     border-radius: 5px;
     width: 100%;
     max-width: 200px;
-    transition-duration: 0.15s;
   }
 
   .album-text {
