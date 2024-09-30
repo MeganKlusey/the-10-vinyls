@@ -23,7 +23,7 @@
 import { defineProps } from "vue";
 import QuantityComponent from './QuantityComponent'
 
-defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket', 'inBasketPrice']);
+defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket']);
 
 function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, blackText = null) {
   if (bgColour != null) {
