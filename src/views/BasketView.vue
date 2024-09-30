@@ -73,15 +73,18 @@ function totalPrice(albums) {
 
     p {
       color: #000;
-      font-size: 32px;
+      font-size: 40px;
       font-family: 'Helvetica', sans-serif;
       font-weight: 400;
+      margin-top: 20px;
     }
 
     button {
       background-color: #C48D00;
       cursor: pointer;
       border: none;
+      font-size: 18px;
+      letter-spacing: 2px;
       color: #FFFFF0;
       height: 44px;
       width: 100%;
