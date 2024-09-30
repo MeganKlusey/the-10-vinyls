@@ -1,13 +1,13 @@
 <template>
   <header>
     <RouterLink to="/" id="home" class="nav-button" activeClass="nav-active">
-      <span class="nav-button-text home-text"><ion-icon class="home-icon" name="home-outline"></ion-icon> Home</span>
+      <span class="nav-button-text home-text"><ion-icon class="home-icon" name="home-outline"></ion-icon>&nbsp;Home</span>
     </RouterLink>
     <RouterLink to="/">
       <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
     </RouterLink>
     <RouterLink to="/basket" id="basket" class="nav-button" activeClass="nav-active">
-      <span class="nav-button-text basket-text"><ion-icon class="basket-icon" name="cart-outline"></ion-icon> Basket ({{ totalQuantity(store.albums) }})</span>
+      <span class="nav-button-text basket-text"><ion-icon class="basket-icon" name="cart-outline"></ion-icon>&nbsp;Basket ({{ totalQuantity(store.albums) }})</span>
     </RouterLink>
   </header>
   <RouterView />
@@ -47,10 +47,10 @@ body {
     }
 
     .nav-button {
-      transition-duration: 0.1s;
       border-bottom: 1px solid transparent;
 
       span {
+        display: flex;
         transition-duration: 0.1s;
       }
 
@@ -99,7 +99,8 @@ body {
         display: none;
 
         @media only screen and (min-width: 640px) {
-          display: block;
+          display: flex;
+          align-items: center;
         }
       }
     }

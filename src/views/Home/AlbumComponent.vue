@@ -142,7 +142,7 @@ function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, b
   p {
     color: #78716C;
     margin-top: 2px;
-    transition-delay: 0.1s;
+    transition-duration: 0.1s;
 
     &.price {
       color: #A8A5A3;
