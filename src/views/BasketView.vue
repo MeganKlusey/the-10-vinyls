@@ -10,6 +10,7 @@
           :name=album.name
           :artist=album.artist
           :colour=album.colour
+          :quantity=album.quantity
           :id=album.id
           :inBasket=true
         />
