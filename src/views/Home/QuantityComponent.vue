@@ -90,6 +90,11 @@ function handleKeyDown(e) {
     width: 24px;
     color: #FFFFF0;
     font-weight: bold;
+    transition-duration: 0.1s;
+
+    &:hover {
+      opacity: 0.6;
+    }
 
     &:first-child {
       box-shadow: -0.5px 0 1px #78716C;
