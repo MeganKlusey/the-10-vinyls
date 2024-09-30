@@ -16,8 +16,10 @@
       </li>
     </ul>
     <div class="total-price">
-      <h2>Total Price:</h2>
-      <p>{{ totalPrice(store.albums) }}</p>
+      <div>
+        <h2>Total Price:</h2>
+        <p>{{ totalPrice(store.albums) }}</p>
+      </div>
       <button>BUY NOW</button>
     </div>
   </div>
@@ -67,6 +69,13 @@ function totalPrice(albums) {
       margin: 0;
       letter-spacing: 2px;
       font-size: 18px;
+    }
+
+    p {
+      color: #000;
+      font-size: 32px;
+      font-family: 'Helvetica', sans-serif;
+      font-weight: 400;
     }
 
     button {
