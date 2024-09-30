@@ -17,6 +17,7 @@
     </ul>
     <div class="total-price">
       <h2>Total Price:</h2>
+      <p>{{ totalPrice(store.albums) }}</p>
       <button>BUY NOW</button>
     </div>
   </div>
@@ -29,6 +30,15 @@
 <script setup>
 import { store } from '../store.js'
 import AlbumComponent from './Home/AlbumComponent'
+
+function totalPrice(albums) {
+  let totalQuantity = 0;
+  albums.forEach(album => {
+    totalQuantity += album.quantity;
+  })
+  
+  return '£' + totalQuantity * 25;
+}
 </script>
 
 <style lang="scss" scoped>
