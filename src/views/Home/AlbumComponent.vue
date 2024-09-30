@@ -11,7 +11,8 @@
         <p class="artist">{{ artist }}</p>
       </div>
       <div>
-        <p class="price">£25</p>
+        <p v-if="!inBasket" class="price">£25</p>
+        <p v-if="inBasket" class="price">£{{ 25 * quantity }} <span>(£25 each)</span></p>
         <QuantityComponent :id=id />
         <p class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;<button class="delete"><ion-icon name="trash-outline"></ion-icon><span>DELETE</span></button></p>
       </div>
@@ -85,6 +86,12 @@ function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, b
     .price {
       color: #000;
       font-size: 24px;
+
+      span {
+        color: #A8A5A3;
+        font-size: 16px;
+        font-style: italic;
+      }
     }
 
     .delete-wrapper {
