@@ -7,7 +7,7 @@
       <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
     </RouterLink>
     <RouterLink to="/basket" id="basket" class="nav-button" activeClass="nav-active">
-      <span class="nav-button-text basket-text"><ion-icon class="basket-icon" name="cart-outline"></ion-icon>&nbsp;Basket ({{ totalQuantity(store.albums) }})</span>
+      <span class="nav-button-text"><ion-icon class="basket-icon" name="cart-outline"></ion-icon><span class="basket-text">&nbsp;Basket</span>&nbsp;({{ totalQuantity(store.albums) }})</span>
     </RouterLink>
   </header>
   <RouterView />
@@ -44,14 +44,29 @@ body {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 150px;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
     .nav-button {
       border-bottom: 1px solid transparent;
 
+      &:hover {
+        opacity: 0.6;
+      }
+
       span {
         display: flex;
-        transition-duration: 0.1s;
+
+        &:not(.basket-text) {
+          transition-duration: 0.1s;
+        }
+      }
+
+      .nav-button-text {
+        align-items: center;
       }
 
       &.nav-active {
