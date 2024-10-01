@@ -14,7 +14,8 @@
         <p v-if="!inBasket" class="price">£25</p>
         <p v-if="inBasket" class="price">£{{ 25 * quantity }} <span>(£25 each)</span></p>
         <QuantityComponent :id=id />
-        <p class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;<button class="delete"><ion-icon name="trash-outline"></ion-icon><span>DELETE</span></button></p>
+        <p class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;<button class="delete">
+        <ion-icon name="trash-outline"></ion-icon>&nbsp;<span>REMOVE</span></button></p>
       </div>
     </div>
   </div>
@@ -111,6 +112,7 @@ function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, b
 
         &:hover {
           border-bottom: 1px solid #000;
+          opacity: 0.6;
         }
       }
     }
