@@ -43,6 +43,7 @@ body {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition-duration: 0.1s;
       width: 150px;
 
       &:hover {
