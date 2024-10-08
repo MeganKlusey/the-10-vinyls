@@ -47,21 +47,37 @@ function totalPrice(albums) {
 <style lang="scss" scoped>
 .basket-container {
   display: flex;
-  position: relatiive;
+  flex-direction: column;
+  position: relative;
+  gap: 40px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
   
   .total-price {
-    border-left: 1px solid #A8A5A3;
+    border-top: 1px solid #A8A5A3;
+    border-left: none;
     background-color: #fff;
-    position: fixed;
-    left: 98%;
-    height: 50vh;
-    width: 20%;
-    top: 50%;
-    transform: translate(-98%, -50%);
+    position: relative;
+    height: 35vh;
+    width: auto;
     padding: 20px;
+    margin: 0 2%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (min-width: 1024px) {
+      border-left: 1px solid #A8A5A3;
+      border-top: none;
+      position: fixed;
+      height: 50vh;
+      top: 50%;
+      left: 98%;
+      transform: translate(-98%, -50%);
+      width: 20%;
+    }
 
     h2 {
       font-family: 'Helvetica', sans-serif;
@@ -70,6 +86,11 @@ function totalPrice(albums) {
       margin: 0;
       letter-spacing: 2px;
       font-size: 18px;
+      text-align: right;
+
+      @media (min-width: 1024px) {
+        text-align: left;
+      }
     }
 
     p {
@@ -78,6 +99,11 @@ function totalPrice(albums) {
       font-family: 'Helvetica', sans-serif;
       font-weight: 400;
       margin-top: 20px;
+      text-align: right;
+
+      @media (min-width: 1024px) {
+        text-align: left;
+      }
     }
 
     button {
