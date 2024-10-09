@@ -14,18 +14,19 @@
         <p v-if="!inBasket" class="price">£25</p>
         <p v-if="inBasket" class="price">£{{ 25 * quantity }} <span>(£25 each)</span></p>
         <QuantityComponent :id=id />
-        <p class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;<button class="delete">
-        <ion-icon name="trash-outline"></ion-icon>&nbsp;<span>REMOVE</span></button></p>
+        <span class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;
+        <button @click="removeAlbumQuantity" class="delete"><ion-icon name="trash-outline"></ion-icon>&nbsp;<span>REMOVE</span></button></span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { store } from '../../store.js'
 import { defineProps } from "vue";
 import QuantityComponent from './QuantityComponent'
 
-defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket']);
+let props = defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket']);
 
 function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, blackText = null) {
   if (bgColour != null) {
@@ -61,6 +62,10 @@ function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, b
       document.getElementsByClassName('nav-active')[l].style.borderBottomColor = '';
     }
   }
+}
+
+function removeAlbumQuantity() {
+  store.albums.filter(album => album.id === props.id)[0].quantity = 0;
 }
 </script>
 
@@ -98,6 +103,7 @@ function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, b
     .delete-wrapper {
       display: flex;
       font-size: 12px;
+      font-family: 'Helvetica', sans-serif;
       align-items: center;
       margin-top: 10px;
 

@@ -39,14 +39,12 @@ function handleBlur(e) {
 function removeQuantity() {
   if(store.albums.filter(album => album.id === props.id)[0].quantity > 0) {
     store.albums.filter(album => album.id === props.id)[0].quantity--;
-    store.totalQuantity--;
   }
 }
 
 function addQuantity() {
   if (store.albums.filter(album => album.id === props.id)[0].quantity < 100) {
     store.albums.filter(album => album.id === props.id)[0].quantity++;
-    store.totalQuantity++;
   }
 }
 
