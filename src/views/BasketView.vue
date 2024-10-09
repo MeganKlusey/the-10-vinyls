@@ -83,6 +83,8 @@ function resetTotalQuantity(albums) {
       height: 50vh;
       top: 50%;
       left: 98%;
+      margin: 0;
+      padding-right: 8px;
       transform: translate(-98%, -50%);
       width: 20%;
     }
