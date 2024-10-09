@@ -21,7 +21,9 @@
         <h2>Total Price:</h2>
         <p>{{ totalPrice(store.albums) }}</p>
       </div>
-      <button>BUY NOW</button>
+      <RouterLink to="/success" id="success">
+        <button @click="resetTotalQuantity(store.albums)">Buy now</button>
+      </RouterLink>
     </div>
   </div>
   <div v-if="store.albums.filter(album => album.quantity).length == 0"
@@ -41,6 +43,12 @@ function totalPrice(albums) {
   })
   
   return '£' + totalQuantity * 25;
+}
+
+function resetTotalQuantity(albums) {
+  albums.forEach(album => {
+    album.quantity = 0;
+  })
 }
 </script>
 
@@ -116,6 +124,7 @@ function totalPrice(albums) {
       height: 44px;
       width: 100%;
       transition-duration: 0.1s;
+      text-transform: uppercase;
 
       &:hover {
         opacity: 0.6;
