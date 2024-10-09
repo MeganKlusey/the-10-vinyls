@@ -54,70 +54,67 @@ body {
     .nav-button {
       border-bottom: 1px solid transparent;
 
+      &#home {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: absolute;
+        top: 50%;
+        left: 2%;
+        transform: translate(-2%, -50%);
+        white-space: nowrap;
+        font-family: 'Helvetica', sans-serif;
+        font-weight: 400;
+        margin: 0;
+        text-transform: uppercase;
+        color: #000;
+        letter-spacing: 2px;
+        text-decoration: none;
+      }
+
+      &#basket {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: absolute;
+        top: 50%;
+        left: 98%;
+        transform: translate(-98%, -50%);
+        white-space: nowrap;
+        font-family: 'Helvetica', sans-serif;
+        font-weight: 400;
+        margin: 0;
+        text-transform: uppercase;
+        color: #000;
+        letter-spacing: 2px;
+        text-decoration: none;
+
+        .basket-text {
+          display: none;
+
+          @media only screen and (min-width: 640px) {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+
       &:hover {
         opacity: 0.6;
       }
 
-      span {
+      .nav-button-text {
         display: flex;
+        align-items: center;
 
         &:not(.basket-text) {
           transition-duration: 0.1s;
         }
       }
 
-      .nav-button-text {
-        align-items: center;
-      }
-
       &.nav-active {
         border-bottom: 1px solid #000;
         transition-duration: 0.1s;
-      }
-    }
-
-    #home {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      position: absolute;
-      top: 50%;
-      left: 2%;
-      transform: translate(-2%, -50%);
-      white-space: nowrap;
-      font-family: 'Helvetica', sans-serif;
-      font-weight: 400;
-      margin: 0;
-      text-transform: uppercase;
-      color: #000;
-      letter-spacing: 2px;
-      text-decoration: none;
-    }
-
-    #basket {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      position: absolute;
-      top: 50%;
-      left: 98%;
-      transform: translate(-98%, -50%);
-      white-space: nowrap;
-      font-family: 'Helvetica', sans-serif;
-      font-weight: 400;
-      margin: 0;
-      text-transform: uppercase;
-      color: #000;
-      letter-spacing: 2px;
-      text-decoration: none;
-
-      .basket-text {
-        display: none;
-
-        @media only screen and (min-width: 640px) {
-          display: flex;
-          align-items: center;
-        }
       }
     }
   }
