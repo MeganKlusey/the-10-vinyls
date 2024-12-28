@@ -8,31 +8,33 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineProps } from "vue";
-import { store } from '../../store.js'
+import { store } from '../../store.js';
 
 let props = defineProps(['id']);
 
-function handleInput(e) {
-  const value = e.target.value;
-  const checkMinValue = "00";
+function handleInput(e: Event) {
+  const input = e.target as HTMLInputElement;
+  const value = Number(input.value);
   const checkMaxValue = 100;
   
-  if (value < 0 || String(value).startsWith(checkMinValue)) {
+  if (value < 0) {
     store.albums.filter(album => album.id === props.id)[0].quantity = 0;
-    e.target.value = 0;
+    input.value = "00";
   } else if (value > checkMaxValue) {
     store.albums.filter(album => album.id === props.id)[0].quantity = checkMaxValue;
-    e.target.value = checkMaxValue;
+    input.value = checkMaxValue.toString();
   } else {
     store.albums.filter(album => album.id === props.id)[0].quantity = Number(value);
   }
 }
 
-function handleBlur(e) {
-  if (e.target.value === '') {
-    e.target.value = 0;
+function handleBlur(e: Event) {
+  const input = e.target as HTMLInputElement;
+
+  if (input.value === '') {
+    input.value = "00";
   }
 }
 
@@ -48,7 +50,7 @@ function addQuantity() {
   }
 }
 
-function handleKeyDown(e) {
+function handleKeyDown(e: { key: string; preventDefault: () => void }) {
   if (e.key === '-') {
     e.preventDefault();
   }
