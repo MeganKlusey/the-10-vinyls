@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { store } from './store.js'
+import { store } from './store'
 
 function totalQuantity(albums) {
   let totalQuantity = 0;
