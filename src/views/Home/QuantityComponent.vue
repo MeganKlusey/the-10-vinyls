@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { store } from '../../store.js';
+import { store } from '../../store';
 
 let props = defineProps(['id']);
 

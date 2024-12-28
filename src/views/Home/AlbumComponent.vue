@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { store } from '../../store.js'
+import { store } from '../../store'
 import { defineProps } from "vue";
 import QuantityComponent from './QuantityComponent'
 
