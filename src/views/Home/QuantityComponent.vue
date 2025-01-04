@@ -39,7 +39,7 @@ function handleBlur(e: Event) {
 }
 
 function removeQuantity() {
-  if(store.albums.filter(album => album.id === props.id)[0].quantity > 0) {
+  if (store.albums.filter(album => album.id === props.id)[0].quantity > 0) {
     store.albums.filter(album => album.id === props.id)[0].quantity--;
   }
 }
