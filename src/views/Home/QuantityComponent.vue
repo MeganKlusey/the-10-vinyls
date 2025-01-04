@@ -12,7 +12,7 @@
 import { defineProps } from "vue";
 import { store } from '../../store';
 
-let props = defineProps(['id']);
+let props = defineProps(['id', 'inBasket']);
 
 function handleInput(e: Event) {
   const input = e.target as HTMLInputElement;
@@ -20,8 +20,13 @@ function handleInput(e: Event) {
   const checkMaxValue = 100;
   
   if (value <= 0) {
-    store.albums.filter(album => album.id === props.id)[0].quantity = 0;
-    input.value = "0";
+    if (props.inBasket) {
+      store.albums.filter(album => album.id === props.id)[0].quantity = 1;
+      input.value = "1";
+    } else {
+      store.albums.filter(album => album.id === props.id)[0].quantity = 0;
+      input.value = "0";
+    }
   } else if (value > checkMaxValue) {
     store.albums.filter(album => album.id === props.id)[0].quantity = checkMaxValue;
     input.value = checkMaxValue.toString();

@@ -13,7 +13,7 @@
       <div>
         <p v-if="!inBasket" class="price">£25</p>
         <p v-if="inBasket" class="price">£{{ 25 * quantity }} <span>(£25 each)</span></p>
-        <QuantityComponent :id=id />
+        <QuantityComponent :id=id :inBasket=inBasket />
         <span class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;
         <button @click="removeAlbumQuantity" class="delete"><ion-icon name="trash-outline"></ion-icon>&nbsp;<span>Remove</span></button></span>
       </div>
