@@ -19,9 +19,9 @@ function handleInput(e: Event) {
   const value = Number(input.value);
   const checkMaxValue = 100;
   
-  if (value < 0) {
+  if (value <= 0) {
     store.albums.filter(album => album.id === props.id)[0].quantity = 0;
-    input.value = "00";
+    input.value = "0";
   } else if (value > checkMaxValue) {
     store.albums.filter(album => album.id === props.id)[0].quantity = checkMaxValue;
     input.value = checkMaxValue.toString();
