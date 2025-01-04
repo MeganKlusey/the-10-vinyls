@@ -13,10 +13,12 @@
   <RouterView />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { store } from './store'
 
-function totalQuantity(albums) {
+type album = {name: string, artist: string, colour: string, id: number, quantity: number}[];
+
+function totalQuantity(albums: album) {
   let totalQuantity = 0;
   albums.forEach(album => {
     totalQuantity += album.quantity;
