@@ -21,45 +21,50 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { store } from '../../store'
 import { defineProps } from "vue";
-import QuantityComponent from './QuantityComponent'
+import QuantityComponent from './QuantityComponent.vue';
 
 let props = defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket']);
 
-function changeColour(bgColour = null, greyOneText = null, greyTwoText = null, blackText = null) {
+function changeColour(bgColour: null | string = null, greyOneText: null | string = null, greyTwoText: null | string = null, blackText: null | string = null) {
+  const artist = Array.from(document.getElementsByClassName('artist')) as HTMLElement[];
+  const price = Array.from(document.getElementsByClassName('price')) as HTMLElement[];
+  const navButtonText = Array.from(document.querySelectorAll('.nav-button-text')) as HTMLElement[];
+  const navActive = Array.from(document.querySelectorAll('.nav-active')) as HTMLElement[];
+
   if (bgColour != null) {
     document.body.style.backgroundColor = '#' + bgColour;
   } else {
     document.body.style.backgroundColor = 'inherit';
   }
-  for (var i = 0; i < document.getElementsByClassName('artist').length; i++) {
+  for (var i = 0; i < artist.length; i++) {
     if (greyOneText != null) {
-      document.getElementsByClassName('artist')[i].style.color = '#' + greyOneText;
+      artist[i].style.color = '#' + greyOneText;
     } else {
-      document.getElementsByClassName('artist')[i].style.color = '';
+      artist[i].style.color = '';
     }
   }
-  for (var j = 0; j < document.getElementsByClassName('price').length; j++) {
+  for (var j = 0; j < price.length; j++) {
     if (greyTwoText != null) {
-      document.getElementsByClassName('price')[j].style.color = '#' + greyTwoText;
+      price[j].style.color = '#' + greyTwoText;
     } else {
-      document.getElementsByClassName('price')[j].style.color = '';
+      price[j].style.color = '';
     }
   }
-  for (var k = 0; k < document.getElementsByClassName('nav-button-text').length; k++) {
+  for (var k = 0; k < navButtonText.length; k++) {
     if (blackText != null) {
-      document.getElementsByClassName('nav-button-text')[k].style.color = '#' + blackText;
+      navButtonText[k].style.color = '#' + blackText;
     } else {
-      document.getElementsByClassName('nav-button-text')[k].style.color = '';
+      navButtonText[k].style.color = '';
     }
   }
-  for (var l = 0; l < document.getElementsByClassName('nav-active').length; l++) {
+  for (var l = 0; l < navActive.length; l++) {
     if (blackText != null) {
-      document.getElementsByClassName('nav-active')[l].style.borderBottomColor = '#' + blackText;
+      navActive[l].style.borderBottomColor = '#' + blackText;
     } else {
-      document.getElementsByClassName('nav-active')[l].style.borderBottomColor = '';
+      navActive[l].style.borderBottomColor = '';
     }
   }
 }
