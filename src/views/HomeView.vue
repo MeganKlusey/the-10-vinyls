@@ -14,9 +14,9 @@
   </ol>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { store } from '../store'
-import AlbumComponent from './Home/AlbumComponent'
+import AlbumComponent from './Home/AlbumComponent.vue'
 </script>
 
 <style lang="scss" scoped>
