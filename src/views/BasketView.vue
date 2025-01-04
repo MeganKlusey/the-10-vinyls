@@ -32,11 +32,13 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { store } from '../store'
-import AlbumComponent from './Home/AlbumComponent'
+import AlbumComponent from './Home/AlbumComponent.vue'
 
-function totalPrice(albums) {
+type album = {name: string, artist: string, colour: string, id: number, quantity: number}[];
+
+function totalPrice(albums: album) {
   let totalQuantity = 0;
   albums.forEach(album => {
     totalQuantity += album.quantity;
@@ -45,7 +47,7 @@ function totalPrice(albums) {
   return '£' + totalQuantity * 25;
 }
 
-function resetTotalQuantity(albums) {
+function resetTotalQuantity(albums: album) {
   albums.forEach(album => {
     album.quantity = 0;
   })
