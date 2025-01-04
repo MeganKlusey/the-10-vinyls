@@ -44,8 +44,14 @@ function handleBlur(e: Event) {
 }
 
 function removeQuantity() {
-  if (store.albums.filter(album => album.id === props.id)[0].quantity > 0) {
-    store.albums.filter(album => album.id === props.id)[0].quantity--;
+  if (props.inBasket) {
+    if (store.albums.filter(album => album.id === props.id)[0].quantity > 1) {
+      store.albums.filter(album => album.id === props.id)[0].quantity--;
+    }
+  } else {
+    if (store.albums.filter(album => album.id === props.id)[0].quantity > 0) {
+      store.albums.filter(album => album.id === props.id)[0].quantity--;
+    }
   }
 }
 
