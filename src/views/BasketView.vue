@@ -155,6 +155,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-right: 40px;
   list-style-type: none;
 }
 </style>
