@@ -155,11 +155,12 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-right: 40px;
+  padding: 0 20px;
   list-style-type: none;
   
   @media (min-width: 640px) {
     gap: 20px;
+    padding: 0 40px;
   }
 }
 </style>
