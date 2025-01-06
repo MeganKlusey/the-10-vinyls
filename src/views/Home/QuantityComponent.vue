@@ -78,6 +78,7 @@ function handleKeyDown(e: { key: string; preventDefault: () => void }) {
   input {
     height: 24px;
     border: none;
+    border-radius: 0;
     padding: 0;
     font-size: 14px;
     text-align: center;
@@ -98,7 +99,8 @@ function handleKeyDown(e: { key: string; preventDefault: () => void }) {
     cursor: pointer;
     border: none;
     height: 24px;
-    width: 24px;
+    min-width: 24px;
+    padding: 0;
     color: #FFFFF0;
     font-weight: bold;
     transition-duration: 0.1s;
