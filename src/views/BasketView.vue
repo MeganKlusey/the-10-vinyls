@@ -154,8 +154,12 @@ function resetTotalQuantity(albums: album) {
 ul {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   padding-right: 40px;
   list-style-type: none;
+  
+  @media (min-width: 640px) {
+    gap: 20px;
+  }
 }
 </style>

@@ -81,9 +81,13 @@ function removeAlbumQuantity() {
   align-items: center;
 
   &.inBasket {
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
     gap: 20px;
+    
+    @media (min-width: 640px) {
+      flex-direction: row;
+    }
 
     .album-text {
       align-items: flex-start;
