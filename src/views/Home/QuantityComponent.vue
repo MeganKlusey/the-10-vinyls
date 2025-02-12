@@ -89,6 +89,10 @@ function handleKeyDown(e: { key: string; preventDefault: () => void }) {
       appearance: none;
     }
 
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+
     &:focus {
       outline: none;
     }
