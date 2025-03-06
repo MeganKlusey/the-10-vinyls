@@ -171,7 +171,7 @@ function removeAlbumQuantity() {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition: 0.3s;
+      transition-duration: 0.2s;
       position: absolute;
       z-index: -2;
     }
