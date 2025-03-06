@@ -6,6 +6,7 @@
       @mouseover="!inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')"
       @mouseleave="!inBasket && changeColour()"
       :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
+      <img class="vinyl" src="../../assets/vinyl.png" alt="vinyl">
     </div>
       <div class="album-text">
       <div>
@@ -100,6 +101,10 @@ function removeAlbumQuantity() {
           border: none;
         }
       }
+
+      .vinyl {
+        display: none;
+      }
     }
 
     .album-text {
@@ -149,6 +154,7 @@ function removeAlbumQuantity() {
 
   .album-cover-wrapper {
     max-height: 200px;
+    position: relative;
 
     .album-cover {
       border-radius: 5px;
@@ -160,7 +166,24 @@ function removeAlbumQuantity() {
         transform: skew(-1deg, 2deg);
         border-top: 1px solid #A8A5A3;
         border-right: 2px solid #A8A5A3;
+
+        &+ .vinyl {
+          transform: translate(-50%, -50%);
+        }
       }
+    }
+
+    .vinyl {
+      position: absolute;
+      border-radius: 50%;
+      height: 180px;
+      width: 180px;
+      top: 50%;
+      left: 88%;
+      transform: translate(-88%, -50%);
+      transition: 0.3s;
+      pointer-events: none;
+      z-index: -1;
     }
   }
 
@@ -196,6 +219,14 @@ function removeAlbumQuantity() {
     &.price {
       color: #A8A5A3;
     }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(-88%, -50%);
+  } 100% {
+    transform: translate(-50%, -50%);
   }
 }
 </style>
