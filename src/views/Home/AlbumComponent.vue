@@ -171,8 +171,8 @@ function removeAlbumQuantity() {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition-duration: 0.2s;
       position: absolute;
+      transition-duration: 0.2s;
       z-index: -2;
     }
 
@@ -184,13 +184,16 @@ function removeAlbumQuantity() {
 
       &:hover {
         transform: skew(-1deg, 2deg);
+        border-right: 1px solid #A8A5A3;
+        margin-left: 1.5px;
 
         &+ .album-back {
           transform: translate(calc(-50% + 2px), calc(-50% - 1px)) skew(-1deg, 2deg);
+          padding-right: 2px;
         }
 
         &~ .vinyl-wrapper {
-          transform: translate(calc(12% + 3.5px), -50%) skew(-1deg, 2deg);
+          transform: translate(calc(12% + 2.5px), -50%) skew(-1deg, 2deg);
         }
       }
     }
