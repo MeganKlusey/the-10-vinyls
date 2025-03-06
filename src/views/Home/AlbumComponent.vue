@@ -190,11 +190,11 @@ function removeAlbumQuantity() {
 
         &+ .album-back {
           transform: translate(calc(-50% + 2px), calc(-50% - 1px)) skew(-1deg, 2deg);
-          padding-right: 2px;
+          padding-right: 1.5px;
         }
 
         &~ .vinyl-wrapper {
-          transform: translate(calc(12% + 2.5px), -50%) skew(-1deg, 2deg);
+          transform: translate(calc(12% + 3px), -50%) skew(-1deg, 2deg);
         }
       }
     }
