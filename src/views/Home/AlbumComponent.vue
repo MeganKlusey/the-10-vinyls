@@ -221,12 +221,4 @@ function removeAlbumQuantity() {
     }
   }
 }
-
-@keyframes slide {
-  0% {
-    transform: translate(-88%, -50%);
-  } 100% {
-    transform: translate(-50%, -50%);
-  }
-}
 </style>
