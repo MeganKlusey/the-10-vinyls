@@ -166,6 +166,7 @@ function removeAlbumQuantity() {
     .album-back {
       background-color: #A8A5A3;
       border-radius: 5px;
+      border-top-left-radius: 6px;
       height: 200px;
       width: 200px;
       top: 50%;
