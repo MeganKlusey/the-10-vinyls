@@ -1,11 +1,13 @@
 <template>
   <div class="album" :class="{inBasket: inBasket}">
     <h2 v-if="!inBasket">{{ id }}</h2>
-    <img
-    @mouseover="!inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')"
-    @mouseleave="!inBasket && changeColour()"
-    :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
-    <div class="album-text">
+    <div class="album-cover-wrapper">
+      <img
+      @mouseover="!inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')"
+      @mouseleave="!inBasket && changeColour()"
+      :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
+    </div>
+      <div class="album-text">
       <div>
         <h3>{{ name }}</h3>
         <p class="artist">{{ artist }}</p>
@@ -134,16 +136,21 @@ function removeAlbumQuantity() {
     }
   }
 
-  .album-cover {
-    border-radius: 5px;
-    width: 100%;
-    max-width: 200px;
-    transition-duration: 0.2s;
+  .album-cover-wrapper {
+    max-height: 200px;
 
-    &:hover {
-      transform: skew(-1deg, 2deg);
-      border-top: 1px solid #A8A5A3;
-      border-right: 2px solid #A8A5A3;
+    .album-cover {
+      border-radius: 5px;
+      width: 100%;
+      max-width: 200px;
+      transition-duration: 0.2s;
+
+      &:hover {
+        max-height: 200px;
+        transform: skew(-1deg, 2deg);
+        border-top: 1px solid #A8A5A3;
+        border-right: 2px solid #A8A5A3;
+      }
     }
   }
 
