@@ -105,6 +105,10 @@ function removeAlbumQuantity() {
         }
       }
 
+      .album-back {
+        display: none;
+      }
+
       .vinyl {
         display: none;
       }
