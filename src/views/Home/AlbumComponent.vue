@@ -91,6 +91,17 @@ function removeAlbumQuantity() {
       flex-direction: row;
     }
 
+    .album-cover-wrapper {
+      max-height: none;
+
+      .album-cover {
+        &:hover {
+          transform: none;
+          border: none;
+        }
+      }
+    }
+
     .album-text {
       align-items: flex-start;
       justify-content: space-evenly;
@@ -146,7 +157,6 @@ function removeAlbumQuantity() {
       transition-duration: 0.2s;
 
       &:hover {
-        max-height: 200px;
         transform: skew(-1deg, 2deg);
         border-top: 1px solid #A8A5A3;
         border-right: 2px solid #A8A5A3;
