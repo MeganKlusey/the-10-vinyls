@@ -3,7 +3,7 @@
     <RouterLink to="/" id="home" class="nav-button" activeClass="nav-active">
       <span class="nav-button-text home-text"><ion-icon class="home-icon" name="home-outline"></ion-icon>&nbsp;Home</span>
     </RouterLink>
-    <RouterLink to="/">
+    <RouterLink to="/" id="logo-wrapper">
       <img id="logo" alt="The 10 Vinyls logo" src="./assets/logo.png">
     </RouterLink>
     <RouterLink to="/basket" id="basket" class="nav-button" activeClass="nav-active">
@@ -38,18 +38,21 @@ body {
     align-items: center;
     position: relative;
 
-    #logo {
-      display: block;
-      margin: 0 auto;
+    #logo-wrapper {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition-duration: 0.1s;
-      width: 150px;
 
-      &:hover {
-        opacity: 0.6;
+      #logo {
+        display: block;
+        margin: 0 auto;
+        transition-duration: 0.1s;
+        width: 150px;
+
+        &:hover {
+          opacity: 0.6;
+        }
       }
     }
 
