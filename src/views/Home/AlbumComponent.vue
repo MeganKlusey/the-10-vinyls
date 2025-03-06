@@ -6,8 +6,11 @@
       @mouseover="!inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')"
       @mouseleave="!inBasket && changeColour()"
       :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
-      <img class="vinyl" src="../../assets/vinyl.png" alt="vinyl">
-    </div>
+      <div class="album-back"></div>
+      <div class="vinyl-wrapper">
+        <img class="vinyl" src="../../assets/vinyl.png" alt="vinyl">
+      </div>
+      </div>
       <div class="album-text">
       <div>
         <h3>{{ name }}</h3>
@@ -156,6 +159,19 @@ function removeAlbumQuantity() {
     max-height: 200px;
     position: relative;
 
+    .album-back {
+      background-color: #A8A5A3;
+      border-radius: 5px;
+      height: 200px;
+      width: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.3s;
+      position: absolute;
+      z-index: -2;
+    }
+
     .album-cover {
       border-radius: 5px;
       width: 100%;
@@ -164,26 +180,35 @@ function removeAlbumQuantity() {
 
       &:hover {
         transform: skew(-1deg, 2deg);
-        border-top: 1px solid #A8A5A3;
-        border-right: 2px solid #A8A5A3;
 
-        &+ .vinyl {
-          transform: translate(-50%, -50%);
+        &+ .album-back {
+          transform: translate(calc(-50% + 2px), calc(-50% - 1px)) skew(-1deg, 2deg);
+        }
+
+        &~ .vinyl-wrapper {
+          transform: translate(calc(12% + 3.5px), -50%) skew(-1deg, 2deg);
         }
       }
     }
 
-    .vinyl {
+    .vinyl-wrapper {
       position: absolute;
       border-radius: 50%;
       height: 180px;
       width: 180px;
       top: 50%;
       left: 88%;
-      transform: translate(-88%, -50%);
+      transform: translate(-22%, -50%) skew(-1deg, 2deg);
       transition: 0.3s;
       pointer-events: none;
       z-index: -1;
+
+      .vinyl {
+        object-fit: cover;
+        object-position: 100% 100%;
+        height: 100%;
+        width: 38%;
+      }
     }
   }
 
