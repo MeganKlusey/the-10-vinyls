@@ -138,6 +138,13 @@ function removeAlbumQuantity() {
     border-radius: 5px;
     width: 100%;
     max-width: 200px;
+    transition-duration: 0.2s;
+
+    &:hover {
+      transform: skew(-1deg, 2deg);
+      border-top: 1px solid #A8A5A3;
+      border-right: 2px solid #A8A5A3;
+    }
   }
 
   .album-text {
