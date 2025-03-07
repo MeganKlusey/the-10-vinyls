@@ -28,6 +28,7 @@ ol {
   margin: 0;
   margin: 100px 0;
   row-gap: 100px;
+  overflow-x: hidden;
 
   li {
     list-style-type: none;
