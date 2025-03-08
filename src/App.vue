@@ -40,10 +40,11 @@ body {
 
     #logo-wrapper {
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 0;
+      transform: translate(0%, -50%);
 
-      @media only screen and (min-width: 640px) {
+      @media only screen and (min-width: 425px) {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
