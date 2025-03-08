@@ -82,7 +82,7 @@ body {
         letter-spacing: 2px;
         text-decoration: none;
         
-        @media only screen and (min-width: 640px) {
+        @media only screen and (min-width: 425px) {
           display: flex;
         }
       }
