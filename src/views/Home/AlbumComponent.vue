@@ -183,7 +183,7 @@ function removeAlbumQuantity() {
       max-width: 200px;
       transition-duration: 0.2s;
 
-      &:hover {
+      &:hover, &:active {
         transform: skew(-1deg, 2deg);
         border-right: 1px solid #A8A5A3;
         margin-left: 1.5px;
