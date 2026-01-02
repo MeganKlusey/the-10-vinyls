@@ -1,82 +1,114 @@
 <template>
-  <div class="album" :class="{inBasket: inBasket}">
+  <div class="album" :class="{ inBasket: inBasket }">
     <h2 v-if="!inBasket">{{ id }}</h2>
     <div class="album-cover-wrapper">
       <img
-      @mouseover="!inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')"
-      @mouseleave="!inBasket && changeColour()"
-      :id=id class="album-cover" alt="Album cover" :src="require('../../assets/' + id + '.jpg')">
+        @mouseover="
+          !inBasket && changeColour(colour, 'FFFFF0', 'FFFFF0', 'FFFFF0')
+        "
+        @mouseleave="!inBasket && changeColour()"
+        :id="id"
+        class="album-cover"
+        alt="Album cover"
+        :src="require('../../assets/' + id + '.jpg')"
+      />
       <div class="album-back"></div>
       <div class="vinyl-wrapper">
-        <img class="vinyl" src="../../assets/vinyl.png" alt="vinyl">
+        <img class="vinyl" src="../../assets/vinyl.png" alt="vinyl" />
       </div>
-      </div>
-      <div class="album-text">
+    </div>
+    <div class="album-text">
       <div>
         <h3>{{ name }}</h3>
         <p class="artist">{{ artist }}</p>
       </div>
       <div>
         <p v-if="!inBasket" class="price">£25</p>
-        <p v-if="inBasket" class="price">£{{ 25 * quantity }} <span>(£25 each)</span></p>
-        <QuantityComponent :id=id :inBasket=inBasket />
-        <span class="delete-wrapper" v-if="inBasket">OR&nbsp;&nbsp;&nbsp;
-        <button @click="removeAlbumQuantity" class="delete"><ion-icon name="trash-outline"></ion-icon>&nbsp;<span>Remove</span></button></span>
+        <p v-if="inBasket" class="price">
+          £{{ 25 * quantity }} <span>(£25 each)</span>
+        </p>
+        <QuantityComponent :id="id" :inBasket="inBasket" />
+        <span class="delete-wrapper" v-if="inBasket"
+          >OR&nbsp;&nbsp;&nbsp;
+          <button @click="removeAlbumQuantity" class="delete">
+            <ion-icon name="trash-outline"></ion-icon>&nbsp;<span>Remove</span>
+          </button></span
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { store } from '../../store'
+import { store } from "../../store";
 import { defineProps } from "vue";
-import QuantityComponent from './QuantityComponent.vue';
+import QuantityComponent from "./QuantityComponent.vue";
 
-let props = defineProps(['name', 'artist', 'colour', 'id', 'quantity', 'inBasket']);
+let props = defineProps([
+  "name",
+  "artist",
+  "colour",
+  "id",
+  "quantity",
+  "inBasket",
+]);
 
-function changeColour(bgColour: null | string = null, greyOneText: null | string = null, greyTwoText: null | string = null, blackText: null | string = null) {
-  const artist = Array.from(document.getElementsByClassName('artist')) as HTMLElement[];
-  const price = Array.from(document.getElementsByClassName('price')) as HTMLElement[];
-  const navButtonText = Array.from(document.querySelectorAll('.nav-button-text')) as HTMLElement[];
-  const navActive = Array.from(document.querySelectorAll('.nav-active')) as HTMLElement[];
+function changeColour(
+  bgColour: null | string = null,
+  greyOneText: null | string = null,
+  greyTwoText: null | string = null,
+  blackText: null | string = null
+) {
+  const artist = Array.from(
+    document.getElementsByClassName("artist")
+  ) as HTMLElement[];
+  const price = Array.from(
+    document.getElementsByClassName("price")
+  ) as HTMLElement[];
+  const navButtonText = Array.from(
+    document.querySelectorAll(".nav-button-text")
+  ) as HTMLElement[];
+  const navActive = Array.from(
+    document.querySelectorAll(".nav-active")
+  ) as HTMLElement[];
 
   if (bgColour != null) {
-    document.body.style.backgroundColor = '#' + bgColour;
+    document.body.style.backgroundColor = "#" + bgColour;
   } else {
-    document.body.style.backgroundColor = 'inherit';
+    document.body.style.backgroundColor = "inherit";
   }
   for (var i = 0; i < artist.length; i++) {
     if (greyOneText != null) {
-      artist[i].style.color = '#' + greyOneText;
+      artist[i].style.color = "#" + greyOneText;
     } else {
-      artist[i].style.color = '';
+      artist[i].style.color = "";
     }
   }
   for (var j = 0; j < price.length; j++) {
     if (greyTwoText != null) {
-      price[j].style.color = '#' + greyTwoText;
+      price[j].style.color = "#" + greyTwoText;
     } else {
-      price[j].style.color = '';
+      price[j].style.color = "";
     }
   }
   for (var k = 0; k < navButtonText.length; k++) {
     if (blackText != null) {
-      navButtonText[k].style.color = '#' + blackText;
+      navButtonText[k].style.color = "#" + blackText;
     } else {
-      navButtonText[k].style.color = '';
+      navButtonText[k].style.color = "";
     }
   }
   for (var l = 0; l < navActive.length; l++) {
     if (blackText != null) {
-      navActive[l].style.borderBottomColor = '#' + blackText;
+      navActive[l].style.borderBottomColor = "#" + blackText;
     } else {
-      navActive[l].style.borderBottomColor = '';
+      navActive[l].style.borderBottomColor = "";
     }
   }
 }
 
 function removeAlbumQuantity() {
-  store.albums.filter(album => album.id === props.id)[0].quantity = 0;
+  store.albums.filter((album) => album.id === props.id)[0].quantity = 0;
 }
 </script>
 
@@ -90,7 +122,7 @@ function removeAlbumQuantity() {
     flex-direction: column;
     align-items: stretch;
     gap: 20px;
-    
+
     @media (min-width: 640px) {
       flex-direction: row;
     }
@@ -102,6 +134,7 @@ function removeAlbumQuantity() {
         &:hover {
           transform: none;
           border: none;
+          margin-left: 0;
         }
       }
 
@@ -119,7 +152,9 @@ function removeAlbumQuantity() {
       justify-content: space-evenly;
     }
 
-    h2, h3, p {
+    h2,
+    h3,
+    p {
       text-align: left;
     }
 
@@ -128,7 +163,7 @@ function removeAlbumQuantity() {
       font-size: 24px;
 
       span {
-        color: #A8A5A3;
+        color: #a8a5a3;
         font-size: 16px;
         font-style: italic;
       }
@@ -137,7 +172,7 @@ function removeAlbumQuantity() {
     .delete-wrapper {
       display: flex;
       font-size: 12px;
-      font-family: 'Helvetica', sans-serif;
+      font-family: "Helvetica", sans-serif;
       align-items: center;
       margin-top: 10px;
 
@@ -164,7 +199,7 @@ function removeAlbumQuantity() {
     position: relative;
 
     .album-back {
-      background-color: #A8A5A3;
+      background-color: #a8a5a3;
       border-radius: 5px;
       border-top-left-radius: 6px;
       height: 200px;
@@ -183,17 +218,19 @@ function removeAlbumQuantity() {
       max-width: 200px;
       transition-duration: 0.2s;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         transform: skew(-1deg, 2deg);
-        border-right: 1px solid #A8A5A3;
+        border-right: 1px solid #a8a5a3;
         margin-left: 1.5px;
 
-        &+ .album-back {
-          transform: translate(calc(-50% + 2px), calc(-50% - 1px)) skew(-1deg, 2deg);
+        & + .album-back {
+          transform: translate(calc(-50% + 2px), calc(-50% - 1px))
+            skew(-1deg, 2deg);
           padding-right: 1.5px;
         }
 
-        &~ .vinyl-wrapper {
+        & ~ .vinyl-wrapper {
           transform: translate(calc(12% + 3px), -50%) skew(-1deg, 2deg);
         }
       }
@@ -226,18 +263,20 @@ function removeAlbumQuantity() {
     align-items: center;
   }
 
-  h2, h3, p {
-    font-family: 'Helvetica', sans-serif;
+  h2,
+  h3,
+  p {
+    font-family: "Helvetica", sans-serif;
     font-weight: 400;
     margin: 0;
     text-align: center;
   }
 
   h2 {
-    color: #C48D00;
+    color: #c48d00;
     font-weight: 600;
     margin-bottom: 10px;
-    text-shadow: 0 0 1px #FFF;
+    text-shadow: 0 0 1px #fff;
   }
 
   h3 {
@@ -245,12 +284,12 @@ function removeAlbumQuantity() {
   }
 
   p {
-    color: #78716C;
+    color: #78716c;
     margin-top: 2px;
     transition-duration: 0.1s;
 
     &.price {
-      color: #A8A5A3;
+      color: #a8a5a3;
     }
   }
 }
